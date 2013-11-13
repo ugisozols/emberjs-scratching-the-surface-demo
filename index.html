@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember.js demo</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars" data-template-name="application">
+    <div class="container">
+      <h1>Ember.js demo app</h1>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li>
+              {{#link-to "index"}}Home{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "about"}}About{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "posts"}}Posts{{/link-to}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {{outlet}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <br>
+    index template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="about">
+    <div class="row">
+      <div class="span12">
+        Beef andouille tenderloin pig chuck bresaola pancetta bacon t-bone fatback shankle pork chop. Tri-tip pork loin swine leberkas jerky, corned beef salami fatback pastrami sausage ground round pig rump shoulder. Pork belly flank pork loin, ribeye pork t-bone corned beef tri-tip short ribs shank bacon meatloaf tail andouille prosciutto. Fatback ribeye short loin beef ribs. Corned beef beef bresaola turducken venison spare ribs prosciutto ribeye ball tip shank pig drumstick. Shank short ribs strip steak, hamburger flank venison biltong. Flank turducken tail hamburger turkey prosciutto, shank sirloin strip steak kielbasa andouille tenderloin venison kevin.
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="posts">
+    <div class="row">
+      <div class="span3">
+        <ul class="nav nav-tabs nav-stacked">
+          {{#each}}
+            <li>{{#link-to "post" this}} {{title}} {{/link-to}}</li>
+          {{/each}}
+          <li>Post count: {{postsCount}}</li>
+        </ul>
+      </div>
+
+      <div class="span9">
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="post">
+    <h2>{{title}} (by {{author}})</h2>
+    <button {{action "deletePost"}}>DELETE</button>
+    <hr>
+    <p>{{body}}</p>
+  </script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember-1.1.2.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

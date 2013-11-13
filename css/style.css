@@ -1,0 +1,11 @@
+html, body {
+    margin: 20px;
+}
+
+.nav > li > a.active {
+  color: red;
+}
+
+li {
+  list-style: none;
+}
